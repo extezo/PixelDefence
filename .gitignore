@@ -11,3 +11,4 @@ data/
 *.sqlite-*
 pixel-td-replay-*.json
 .claude/
+local-artifacts/

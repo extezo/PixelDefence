@@ -26,7 +26,7 @@ ROOT = pathlib.Path(__file__).parent
 # TD_DB — другой файл базы (для проверок, чтобы не трогать настоящую таблицу).
 DB_PATH = pathlib.Path(os.environ.get("TD_DB") or ROOT / "data" / "leaderboard.sqlite")
 # Папки, которые нельзя отдавать как статику: там база с хешами токенов и служебные файлы.
-PRIVATE = ("/data", "/.claude", "/.git", "/serve.py")
+PRIVATE = ("/data", "/.claude", "/.git", "/serve.py", "/local-artifacts")
 NICK_RE = re.compile(r"^[A-Za-zА-Яа-яЁё0-9_\-]{3,16}$")
 MAX_BODY = 1024
 TOP_SIZE = 20
