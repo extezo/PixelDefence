@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pixel Tower Defense</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <header id="hud">
+      <div class="stat lives">ЖИЗНИ <b id="lives">20</b></div>
+      <div class="stat gold">ЗОЛОТО <b id="gold">0</b></div>
+      <div class="stat">ВОЛНА <b id="wave">0</b></div>
+      <div class="stat">РЕКОРД <b id="best">0</b></div>
+      <div class="stat pxp">ОПЫТ <b id="pxp">0</b></div>
+      <div id="replay-badge" class="replay-badge" hidden>РЕПЛЕЙ</div>
+      <div id="run-badge" class="run-badge" hidden></div>
+      <div class="spacer"></div>
+      <button id="btn-cards" class="btn card-btn" title="E" hidden></button>
+      <button id="btn-wave" class="btn primary" title="Пробел">▶ Волна</button>
+      <button id="btn-speed" class="btn" title="F">x1</button>
+      <button id="btn-pause" class="btn" title="P">❚❚</button>
+      <button id="btn-mute" class="btn" title="M">♪</button>
+      <button id="btn-exit-replay" class="btn danger" hidden>Выйти из реплея</button>
+      <button id="btn-menu" class="btn" title="Esc">Меню</button>
+      <button id="btn-help" class="btn" title="H">?</button>
+    </header>
+
+    <div id="main">
+      <div id="stage">
+        <canvas id="game" width="320" height="192"></canvas>
+        <div id="banner"></div>
+        <div id="cards" hidden>
+          <div class="cards-box">
+            <h2 id="cards-title"></h2>
+            <div id="card-row"></div>
+            <div class="card-actions">
+              <button id="btn-reroll" class="btn"></button>
+              <button id="btn-later" class="btn">Позже (Esc)</button>
+              <button id="btn-auto" class="btn"></button>
+            </div>
+          </div>
+        </div>
+        <!-- Главное меню, экран поражения и конец реплея. -->
+        <div id="screen" hidden>
+          <div class="box">
+            <h2 id="screen-title"></h2>
+            <div id="screen-text"></div>
+            <div id="screen-actions" class="screen-actions"></div>
+          </div>
+        </div>
+      </div>
+
+      <aside id="panel">
+        <h3>Башни</h3>
+        <div id="shop"></div>
+        <div id="abilities-box">
+          <h3>Способности</h3>
+          <div id="abilities"></div>
+        </div>
+        <div id="info"></div>
+        <div class="help">H — справка и все клавиши</div>
+      </aside>
+    </div>
+  </div>
+
+  <!-- Диалоги поверх всего: сохранения, Арсенал, лидеры, ник, справка, меню паузы. -->
+  <div id="dialog" hidden>
+    <div class="dialog-box">
+      <button class="btn dialog-close" data-action="close" title="Esc">×</button>
+      <div id="dialog-body"></div>
+    </div>
+  </div>
+  <input id="replay-file" type="file" accept=".json,application/json" hidden>
+
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>
